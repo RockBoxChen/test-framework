@@ -1,0 +1,16 @@
+name: CI测试流水线
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install pytest requests
+      - run: pytest test_login.py -v
