@@ -11,7 +11,7 @@ class TestLogin:
         resp = requests.post(f"{BASE_URL}/post", json=data)
         assert resp.status_code == 200
         result = resp.json()
-        print(f"登录成功：{result['json']}")
+        print(f"登录成功：{result['data']}")
         print("✅ 测试通过！")
 
     def test_login_wrong_password(self):
