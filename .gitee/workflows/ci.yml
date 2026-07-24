@@ -1,0 +1,30 @@
+# 必填，声明版本
+version: '1.0'
+# 流水线名称
+name: Python CI with Pytest
+# 触发条件
+triggers:
+  trigger: auto
+  push:
+    branches:
+      prefix:
+        - master       # 监听 master 分支
+
+stages:
+  - stage:
+      name: test_stage
+      displayName: 运行单元测试
+      strategy: naturally
+      trigger: auto
+      steps:
+        # 使用 Gitee Go 内置的 Python 构建插件
+        - step: build@python
+          name: run_pytest
+          displayName: 执行 Pytest 测试
+          # Python 插件参数
+          pythonVersion: 3.10
+          commands:
+            # 安装依赖，可使用国内镜像加速
+            - pip install pytest requests -i https://pypi.tuna.tsinghua.edu.cn/simple
+            # 运行测试
+            - pytest test_login.py -v
