@@ -1,8 +1,6 @@
 name: CI测试流水线
 
-on:
-  push:
-    branches: [ master ]
+on: [push]
 
 jobs:
   test:
