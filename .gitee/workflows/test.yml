@@ -8,7 +8,7 @@ jobs:
     container:
       image: python:3.10-slim
     steps:
-      - uses: clone@v1
+      - uses: actions/checkout@v4
       - name: 安装依赖
         run: |
           pip install --no-cache-dir pytest requests -i https://pypi.tuna.tsinghua.edu.cn/simple
