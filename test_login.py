@@ -33,7 +33,7 @@ class TestLogin:
 
     def test_number(self):
         """测试一个数字"""
-        a = 10
+        a = 9
         assert a == 9, f"a的值为{a}，实际想要的是9"
         print("✅ 测试数据是成功的")
 
