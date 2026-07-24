@@ -40,4 +40,6 @@ class TestLogin:
     def test_AI(self):
         """AI测试相关的内容"""
         resp = requests.get("https://www.deepseek.com/get")
-        assert resp.status_code = 200
+        assert resp.status_code == 200, f"没能进去啊。。。{resp.text[:200]}"
+        print(f"看下结果。。。{resp.text}")
+        print("AI测试通过✅️")
