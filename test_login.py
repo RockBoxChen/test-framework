@@ -37,3 +37,7 @@ class TestLogin:
         assert a == 9, f"a的值为{a}，实际想要的是9"
         print("✅ 测试数据是成功的")
 
+    def test_AI(self):
+        """AI测试相关的内容"""
+        resp = requests.get("https://www.deepseek.com/get")
+        assert resp.status_code = 200
