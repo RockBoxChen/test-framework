@@ -7,10 +7,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: python:3.10-slim
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - run: pip install pytest requests
-      - run: pytest test_login.py -v
+      - uses: clone@v1
+      - name: 安装依赖
+        run: |
+          pip install --no-cache-dir pytest requests -i https://pypi.tuna.tsinghua.edu.cn/simple
+      - name: 运行测试
+        run: pytest test_login.py -v
